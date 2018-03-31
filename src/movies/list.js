@@ -65,7 +65,7 @@ export const clickOnMovie = () => {
         if (e.target.dataset.type === "movie") {
             clickCount++;
             if (clickCount % 2 === 1) {
-                cache1 = e.target; //2 caches are filling on-click alternatingly. On each click caches are compared and the "if" below is executed
+                cache1 = e.target;
             } else {
                 cache2 = e.target;
             }
