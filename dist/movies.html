@@ -1,93 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <!--<link rel="stylesheet" href="../css/movies-style.css"> Not working for some reason-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-one-third" id="movies-list">
-          <p class="panel-heading">
-            <span class="icon">
-              <i class="fas fa-film"></i>
-            </span>
-            <span>Movies</span>
-          </p>
+    <script src="../movies.js"></script>
+    <style>
+        .description {
+            display: none;
+        }
+        
+        .invisible {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+        }
+        
+        .visible {
+            display: block;
+        }
+        
+        #movie-details {
+            display: none;
+        }
+        
+        .fade-out {
+            opacity: 0;
+            transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition-delay: 100ms;
+            transition-duration: 1000ms;
+        }
+        
+        .fade-in {
+            opacity: 100;
+            transition: cubic-bezier(1, 0, 0, 1);
+            transition-duration: 1000ms;
+        }
+    </style>
+</head>
 
-          <div class="panel-block">
-            <div class="select">
-              <select id="movie-type-search">
-                <option value="all">All</option>
-                <option value="horror">Horror</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="scifi">Sci-Fi</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-              </select>
-            </div>
-          </div>
-          <div class="panel-block">
-            Matrix, Sci-Fi
-          </div>
-          <div class="panel-block">
-            Lord of the rings, Fantasy
-          </div>
-        </div>
-        <div class="column is-two-third" id="movie-details">
-          <p class="panel-heading">
-            <span class="icon">
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-third" id="movies-list">
+                    <p class="panel-heading">
+                        <span class="icon">
               <i class="fas fa-film"></i>
             </span>
-            <span id="movie-title">Movie title</span>
-          </p>
-          <div class="panel-block">
-            <article class="message">
-              <div class="message-body">
-                Movie detail
-              </div>
-            </article>
-          </div>
-        </div>
-       </div> 
-    </div>
-  </section>
-  <footer>
-      <div class="container level">
-        <div class="level-left">
-          <div class="level-item">
-            <div class="select">
-                <select id="movie-type" name="movie-type">
-                  <option value="all">All</option>
-                  <option value="horror">Horror</option>
-                  <option value="fantasy">Fantasy</option>
-                  <option value="scifi">Sci-Fi</option>
-                  <option value="comedy">Comedy</option>
-                  <option value="drama">Drama</option>
-                </select>
+                        <span>Movies</span>
+                    </p>
+
+                    <div class="panel-block">
+                        <div class="select">
+                            <select id="movie-type-search">
+                <option value="All">All</option>
+                <option value="Horror">Horror</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+              </select>
+                        </div>
+                    </div>
+                    <div class="panel-block" data-type="movie">
+                        Matrix, Sci-Fi
+                        <span class="description">Cool sci-fi movie</span>
+                    </div>
+                    <div class="panel-block" data-type="movie">
+                        Lord of the rings, Fantasy
+                        <span class="description">Awesome fantasy movie</span>
+                    </div>
+                </div>
+                <div class="column is-two-third" id="movie-details">
+                    <p class="panel-heading">
+                        <span class="icon">
+              <i class="fas fa-film"></i>
+            </span>
+                        <span id="movie-title">Movie title</span>
+                    </p>
+                    <div class="panel-block">
+                        <article class="message">
+                            <div class="message-body" id="movie-description">
+                                Movie detail
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="level-item">
-            <div class="field has-addons">
-              <p class="control">
-                <input class="input" name="movie-name" type="text" style="width: 300px" placeholder="Movie title">
-              </p>
-              <p class="control">
-                <button id="bug-add" class="button is-primary">
+        </div>
+    </section>
+    <footer>
+        <div class="container level">
+            <div class="level-left">
+                <div class="level-item">
+                    <div class="select">
+                        <select id="movie-type-add" name="movie-type">
+                  <option value="All">All</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Drama">Drama</option>
+                </select>
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <input class="input" name="movie-name" type="text" style="width: 300px" placeholder="Movie title" id="movie-title-add">
+                        </p>
+                        <p class="control">
+                            <button id="bug-add" class="button is-primary">
                   Add Movie
                 </button>
-              </p>
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="container">
-          <textarea name="movie-description" class="textarea" placeholder="Movie description"></textarea>
-      </div>
-  </footer>
-  </body>
+        <div class="container">
+            <textarea name="movie-description" class="textarea" placeholder="Movie description" id="movie-description-add"></textarea>
+        </div>
+    </footer>
+</body>
+
 </html>
