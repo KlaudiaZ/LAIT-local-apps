@@ -20,24 +20,13 @@
             left: -9999px !important;
         }
         
-        .visible {
-            display: block;
-        }
-        
         #movie-details {
-            display: none;
+            opacity: 0;
         }
         
-        .fade-out {
+        .fade-in-and-out {
             opacity: 0;
             transition: cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition-delay: 100ms;
-            transition-duration: 1000ms;
-        }
-        
-        .fade-in {
-            opacity: 100;
-            transition: cubic-bezier(1, 0, 0, 1);
             transition-duration: 1000ms;
         }
     </style>
@@ -76,7 +65,7 @@
                         <span class="description">Awesome fantasy movie</span>
                     </div>
                 </div>
-                <div class="column is-two-third" id="movie-details">
+                <div class="column is-two-third fade-in-and-out" id="movie-details">
                     <p class="panel-heading">
                         <span class="icon">
               <i class="fas fa-film"></i>

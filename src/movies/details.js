@@ -9,17 +9,12 @@ const showMovieDetails = (title, description) => {
     const movieDetails = document.getElementById('movie-details');
     const movieTitle = document.getElementById('movie-title');
     const movieDescription = document.getElementById('movie-description');
-    movieDetails.classList.remove('fade-out');
-    movieDetails.style.display = "block";
     movieTitle.innerText = title;
     movieDescription.innerText = description;
+    movieDetails.style.opacity = 100;
 }
 
 export const hideMovieDetails = () => {
     const movieDetails = document.getElementById('movie-details');
-    //movieDetails.style.display = "none";
-    movieDetails.classList.add('fade-out');
-    setTimeout(() => {
-        movieDetails.style.display = "none";
-    }, 1000);
+    movieDetails.style.opacity = 0;
 }
