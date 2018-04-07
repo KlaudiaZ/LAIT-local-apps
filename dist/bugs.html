@@ -1,91 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bugs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src='/bugs.js' ></script>
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <nav class="panel">
-            <p class="panel-heading">
-              <span class="icon">
+    <script src='/bugs.js'></script>
+    <style>
+        .bug {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns" id="columns">
+                <div class="column">
+                    <nav class="panel">
+                        <p class="panel-heading">
+                            <span class="icon">
                 <i class="fas fa-fire"></i>
               </span>
-              <span>High</span>
-            </p>
-            <div class="panel-block" id="high">
-              <p class="control has-icons-left">
-                No bugs
-              </p>
-            </div>
-          </nav>
-        </div>
-        <div class="column">
-            <nav class="panel">
-              <p class="panel-heading">
-                <span class="icon">
+                            <span>High</span>
+                        </p>
+                        <div class="panel-block" id="high" data-level="high">
+                            <p class="control has-icons-left" id="no-bugs-high">
+                                No bugs
+                            </p>
+                        </div>
+                    </nav>
+                </div>
+                <div class="column">
+                    <nav class="panel">
+                        <p class="panel-heading">
+                            <span class="icon">
                   <i class="fas fa-exclamation-circle"></i>
                 </span>
-                <span>Middle</span>
-              </p>
-              <div class="panel-block" id="middle">
-                <p class="control has-icons-left">
-                  No bugs
-                </p>
-              </div>
-            </nav>
-        </div>
-        <div class="column">
-            <nav class="panel">
-              <p class="panel-heading">
-                <span class="icon">
+                            <span>Medium</span>
+                        </p>
+                        <div class="panel-block" id="medium" data-level="medium">
+                            <p class="control has-icons-left" id="no-bugs-medium">
+                                No bugs
+                            </p>
+                        </div>
+                    </nav>
+                </div>
+                <div class="column">
+                    <nav class="panel">
+                        <p class="panel-heading">
+                            <span class="icon">
                   <i class="fas fa-bug"></i>
                 </span>
-                <span>Middle</span>
-              </p>
-              <div class="panel-block" id="low">
-                <p class="control has-icons-left">
-                  No bugs
-                </p>
-              </div>
-            </nav>
+                            <span>Low</span>
+                        </p>
+                        <div class="panel-block" id="low" data-level="low">
+                            <p class="control has-icons-left" id="no-bugs-low">
+                                No bugs
+                            </p>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="container level">
-      <div class="level-left">
-        <div class="level-item">
-          <div class="select">
-            <select id="bug-type">
+    </section>
+    <footer>
+        <div class="container level">
+            <div class="level-left">
+                <div class="level-item">
+                    <div class="select">
+                        <select id="bug-type">
               <option value="high">High</option>
-              <option value="middle">Middle</option>
+              <option value="medium">Medium</option>
               <option value="low">Low</option>
             </select>
-          </div>
-        </div>
-        <div class="level-item">
-          <div class="field has-addons">
-            <p class="control">
-              <input class="input" id="bug" type="text" style="width: 300px" placeholder="Bug description">
-            </p>
-            <p class="control">
-              <button id="bug-add" class="button is-primary">
+                    </div>
+                </div>
+                <div class="level-item">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <input class="input" id="bug" type="text" style="width: 300px" placeholder="Bug description">
+                        </p>
+                        <p class="control">
+                            <button id="bug-add" class="button is-primary">
                 Add
               </button>
-            </p>
-          </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  </body>
+    </footer>
+</body>
+
 </html>
